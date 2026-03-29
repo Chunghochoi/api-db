@@ -84,7 +84,7 @@ function formatStats(stats: ViewStats): string {
 }
 
 function buildSpeedBar(vps: number): string {
-  const max = 1000;
+  const max = 300;
   const filled = Math.min(10, Math.round((vps / max) * 10));
   return "█".repeat(filled) + "░".repeat(10 - filled);
 }
@@ -169,7 +169,7 @@ bot.command("start_bot", async (ctx) => {
     return;
   }
 
-  const workerCount = 500;
+  const workerCount = 150;
   const task = new TikTokViewTask(videoId, url, workerCount);
   tasks.set(chatId, task);
   task.start();
@@ -241,19 +241,19 @@ bot.command("speed", async (ctx) => {
   const task = tasks.get(chatId);
 
   if (!args[0]) {
-    const current = task ? task.getStats().currentWorkers : 300;
+    const current = task ? task.getStats().currentWorkers : 150;
     return ctx.replyWithHTML(
       `⚙️ <b>Điều chỉnh số workers</b>\n\n` +
       `Hiện tại: <b>${current} workers</b>\n\n` +
       `Dùng: <code>/speed &lt;số&gt;</code>\n` +
       `Ví dụ: <code>/speed 200</code>\n` +
-      `Phạm vi: 10 – 1000`
+      `Phạm vi: 50 – 300`
     );
   }
 
   const n = parseInt(args[0], 10);
-  if (isNaN(n) || n < 10 || n > 1000) {
-    return ctx.reply("⚠️ Số workers phải từ 10 đến 1000.");
+  if (isNaN(n) || n < 50 || n > 300) {
+    return ctx.reply("⚠️ Số workers phải từ 50 đến 300.");
   }
 
   if (!task || task.getStats().status !== "running") {
@@ -405,12 +405,12 @@ bot.command("multi_start", async (ctx) => {
     const colonIdx = arg.lastIndexOf(":");
     if (colonIdx !== -1) {
       const maybeNum = parseInt(arg.slice(colonIdx + 1), 10);
-      if (!isNaN(maybeNum) && maybeNum >= 10 && maybeNum <= 1000) {
+      if (!isNaN(maybeNum) && maybeNum >= 10 && maybeNum <= 500) {
         pairs.push({ url: arg.slice(0, colonIdx), workers: maybeNum });
         continue;
       }
     }
-    pairs.push({ url: arg, workers: 500 });
+    pairs.push({ url: arg, workers: 100 });
   }
 
   if (pairs.length === 0) {
@@ -556,8 +556,8 @@ bot.command("multi_speed", async (ctx) => {
     return ctx.reply("📋 Không có multi-task nào đang chạy.");
   }
   const n = parseInt(ctx.message.text.replace(/^\/multi_speed\s*/i, "").trim(), 10);
-  if (isNaN(n) || n < 10 || n > 1000) {
-    return ctx.reply("❌ Nhập số luồng từ 10–1000.\nVí dụ: /multi_speed 300");
+  if (isNaN(n) || n < 10 || n > 500) {
+    return ctx.reply("❌ Nhập số luồng từ 10–500.\nVí dụ: /multi_speed 150");
   }
   manager.setWorkersAll(n);
   return ctx.replyWithHTML(
@@ -584,7 +584,7 @@ bot.command("help", async (ctx) => {
     `/multi_stop all — Dừng tất cả\n` +
     `/multi_speed &lt;n&gt; — Đặt n luồng cho mọi task\n\n` +
     `<b>⚙️ Điều chỉnh đơn:</b>\n` +
-    `/speed &lt;10-1000&gt; — Số luồng song song\n` +
+    `/speed &lt;50-500&gt; — Số luồng song song\n` +
     `/auto &lt;giây&gt; — Tự báo cáo định kỳ\n` +
     `/auto off — Tắt tự báo cáo\n\n` +
     `<b>🌐 Proxy:</b>\n` +

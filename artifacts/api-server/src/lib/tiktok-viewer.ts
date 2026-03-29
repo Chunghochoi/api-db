@@ -529,10 +529,10 @@ export class TikTokViewTask {
   constructor(
     private readonly videoId: string,
     private readonly originalUrl: string,
-    concurrency = 500,
+    concurrency = 150,
   ) {
-    this.MAX_WORKERS   = Math.min(concurrency, 1000);
-    this.targetWorkers = this.MAX_WORKERS;
+    this.MAX_WORKERS   = Math.min(concurrency, 500);
+    this.targetWorkers = this.MAX_WORKERS; // Start tại MAX ngay lập tức
   }
 
   private sleep(ms: number): Promise<void> { return new Promise(r => setTimeout(r, ms)); }
@@ -700,7 +700,7 @@ export interface MultiTaskStats {
 export class MultiTikTokTask {
   private taskMap = new Map<string, TikTokViewTask>(); // videoId → task
 
-  addTask(videoId: string, url: string, workersPerTask = 500): boolean {
+  addTask(videoId: string, url: string, workersPerTask = 100): boolean {
     if (this.taskMap.has(videoId)) return false; // Already running
     const task = new TikTokViewTask(videoId, url, workersPerTask);
     task.start();

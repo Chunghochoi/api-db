@@ -5,7 +5,7 @@ generated = []
 id = "MEbkFz98Ix5U4dzEFKCw-"
 uri = "file://spy-view-bot-pro.tar.gz"
 type = "unspecified"
-title = "spy-view-bot-pro.tar.gz"
+title = "spy-view-bot-pro.tar.gz — Source code (no node_modules/dist)"
 
 [[outputs]]
 id = "g9LAMWEEisd4SJeuexjTq"
@@ -36,21 +36,3 @@ id = "mFaYlxU-ZtkjWD-yxaFY7"
 uri = "file://spy-view-bot-pro-v5.tar.gz"
 type = "unspecified"
 title = "spy-view-bot-pro-v5.tar.gz — Tăng tốc tiến độ"
-
-[[outputs]]
-id = "tb2s0DQnGM631-t321HoS"
-uri = "file://spy-view-bot-pro-v6.tar.gz"
-type = "unspecified"
-title = "spy-view-bot-pro-v6.tar.gz — Engine thật từ 2 file Python"
-
-[[outputs]]
-id = "SAtLeZ1Hk8O5581f4Jtbk"
-uri = "file://spy-view-bot-pro.zip"
-type = "unspecified"
-title = "SPY VIEW BOT PRO — Source Code (v3 - Fixed speed)"
-
-[[outputs]]
-id = "vg-L8kmcra186MiGBfeOL"
-uri = "file://project.tar.gz"
-type = "unspecified"
-title = "Project Archive (.tar.gz)"
