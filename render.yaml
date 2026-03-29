@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: api-server
+    runtime: node
+    region: singapore
+    plan: free
+    buildCommand: npm install -g pnpm && pnpm install --frozen-lockfile && pnpm --filter @workspace/api-server run build
+    startCommand: node --enable-source-maps artifacts/api-server/dist/index.mjs
+    healthCheckPath: /api/healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: api-db
+          property: connectionString
+      - key: LOG_LEVEL
+        value: info
+      - key: RATE_LIMIT_MAX
+        value: "200"
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+
+databases:
+  - name: api-db
+    region: singapore
+    plan: free
+    databaseName: apidb
+    user: apiuser

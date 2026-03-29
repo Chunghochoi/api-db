@@ -1,0 +1,56 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "MEbkFz98Ix5U4dzEFKCw-"
+uri = "file://spy-view-bot-pro.tar.gz"
+type = "unspecified"
+title = "spy-view-bot-pro.tar.gz"
+
+[[outputs]]
+id = "g9LAMWEEisd4SJeuexjTq"
+uri = "file://spy-view-bot-pro-fixed.tar.gz"
+type = "unspecified"
+title = "spy-view-bot-pro-fixed.tar.gz — Đã sửa lỗi build"
+
+[[outputs]]
+id = "HLRT8ZBOPhTL5QacdlQUf"
+uri = "file://spy-view-bot-pro-v2.tar.gz"
+type = "unspecified"
+title = "spy-view-bot-pro-v2.tar.gz — Có Telegram Bot webhook"
+
+[[outputs]]
+id = "J088biK1bCguBKz9OOWSP"
+uri = "file://spy-view-bot-pro-v3.tar.gz"
+type = "unspecified"
+title = "spy-view-bot-pro-v3.tar.gz — Có /stop_bot và /status"
+
+[[outputs]]
+id = "fLwJdQ1QuuoGMc-WLkGbY"
+uri = "file://spy-view-bot-pro-v4.tar.gz"
+type = "unspecified"
+title = "spy-view-bot-pro-v4.tar.gz — Tiến độ vô hạn"
+
+[[outputs]]
+id = "mFaYlxU-ZtkjWD-yxaFY7"
+uri = "file://spy-view-bot-pro-v5.tar.gz"
+type = "unspecified"
+title = "spy-view-bot-pro-v5.tar.gz — Tăng tốc tiến độ"
+
+[[outputs]]
+id = "tb2s0DQnGM631-t321HoS"
+uri = "file://spy-view-bot-pro-v6.tar.gz"
+type = "unspecified"
+title = "spy-view-bot-pro-v6.tar.gz — Engine thật từ 2 file Python"
+
+[[outputs]]
+id = "SAtLeZ1Hk8O5581f4Jtbk"
+uri = "file://spy-view-bot-pro.zip"
+type = "unspecified"
+title = "SPY VIEW BOT PRO — Source Code (v3 - Fixed speed)"
+
+[[outputs]]
+id = "vg-L8kmcra186MiGBfeOL"
+uri = "file://project.tar.gz"
+type = "unspecified"
+title = "Project Archive (.tar.gz)"
